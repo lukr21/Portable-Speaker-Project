@@ -1,0 +1,57 @@
+### Footprint positions - created on 2026-07-06T04:29:41 ###
+### Printed by KiCad version 10.0.4
+## Unit = mm, Angle = deg.
+## Side : All
+# Ref     Val                          Package                                                             PosX       PosY       Rot  Side
+C1        1u                           C_Disc_D5.0mm_W2.5mm_P5.00mm                                    149.3430   -77.3830  -90.0000  top
+C2        10u                          CP_Radial_D5.0mm_P2.00mm                                        138.9700   -93.3450    0.0000  top
+C3        10u                          CP_Radial_D5.0mm_P2.00mm                                        138.8859   -76.8350    0.0000  top
+C4        1u                           C_Disc_D5.0mm_W2.5mm_P5.00mm                                    134.7470  -109.3000   90.0000  top
+C5        1u                           C_Disc_D5.0mm_W2.5mm_P5.00mm                                    131.6990  -109.3000   90.0000  top
+C6        1u                           C_Disc_D5.0mm_W2.5mm_P5.00mm                                    131.9530  -122.6350  -90.0000  top
+C7        1u                           C_Disc_D5.0mm_W2.5mm_P5.00mm                                    135.1280  -122.6350  -90.0000  top
+C8        1u                           C_Disc_D5.0mm_W2.5mm_P5.00mm                                    138.3030  -122.5950  -90.0000  top
+C9        22p                          C_Disc_D5.0mm_W2.5mm_P5.00mm                                    149.0110  -118.4440    0.0000  top
+C10       22p                          C_Disc_D5.0mm_W2.5mm_P5.00mm                                    149.0110  -113.3640    0.0000  top
+C11       .022u                        C_Disc_D5.0mm_W2.5mm_P5.00mm                                    154.3850  -127.0000    0.0000  top
+C12       .022u                        C_Disc_D5.0mm_W2.5mm_P5.00mm                                    154.3850  -123.8250    0.0000  top
+C13       .22u                         C_Rect_L7.0mm_W2.5mm_P5.00mm                                    160.0600  -113.6650    0.0000  top
+C14       .22u                         C_Rect_L7.0mm_W2.5mm_P5.00mm                                    172.6800  -113.6650  180.0000  top
+C15       10u                          CP_Radial_D5.0mm_P2.00mm                                        164.3700   -75.5650    0.0000  top
+C16       470u                         CP_Radial_D10.0mm_P5.00mm                                       169.6250   -80.6450    0.0000  top
+C17       100n                         C_Disc_D5.0mm_W2.5mm_P5.00mm                                    165.1000   -85.6850   90.0000  top
+D1        LED                          LED_D5.0mm                                                      118.7450   -78.1050    0.0000  top
+D2        P6KE16A                      D_DO-15_P10.16mm_Horizontal                                     130.8100   -75.5650  -90.0000  top
+F1        Polyfuse                     Fuse_Bourns_MF-RG300                                            124.8410   -80.6450   90.0000  top
+J1        USB_C_Receptacle_USB2.0_16P  USB_C_Receptacle_HRO_TYPE-C-31-M-12                             120.0150   -87.5050  -90.0000  top
+J2        Screw_Terminal_01x02         TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal   172.4051  -107.3150   90.0000  top
+J3        Screw_Terminal_01x02         TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal   172.4051   -95.8850   90.0000  top
+R1        22                           R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               140.8430   -99.6080  -90.0000  top
+R2        22                           R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               137.7950   -99.6080  -90.0000  top
+R3        5.1k                         R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               146.1770   -90.9320  -90.0000  top
+R4        5.1k                         R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               149.2250   -90.9320  -90.0000  top
+R5        1k                           R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               152.3430   -74.2880  -90.0000  top
+R6        47k                          R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               152.2730   -90.9320  -90.0000  top
+R7        1M                           R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               157.0990  -110.8240  -90.0000  top
+R8        1.5k                         R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               134.6200   -91.7740  -90.0000  top
+R9        3.3k                         R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               118.2370   -97.4090    0.0000  top
+R10       3.3k                         R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               118.2370  -108.0770    0.0000  top
+R11       3.3k                         R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               118.2370  -119.7610    0.0000  top
+R12       330                          R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               141.6450  -123.8250    0.0000  top
+R13       330                          R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               141.6450  -127.0000    0.0000  top
+R14       10k                          R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               162.5600  -127.0000   90.0000  top
+R15       10k                          R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               168.9100  -127.0000   90.0000  top
+R16       2.7k                         R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               172.0850  -127.0000   90.0000  top
+R17       2.7k                         R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               165.7350  -127.0000   90.0000  top
+R18       47k                          R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               156.8450   -84.4550   90.0000  top
+R19       47k                          R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               160.0200   -74.2950  -90.0000  top
+R20       4.7k                         R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal               146.3430   -74.4180  -90.0000  top
+SW1       SW_Push                      SW_PUSH_6mm                                                     118.5430  -100.4570    0.0000  top
+SW2       SW_Push                      SW_PUSH_6mm                                                     118.7450  -111.1250    0.0000  top
+SW3       SW_Push                      SW_PUSH_6mm                                                     118.7450  -122.8090    0.0000  top
+U1        LD1117S33TR_SOT223           SOT-223-3_TabPin2                                               138.8250   -84.4300   90.0000  top
+U2        PCM2704CDBR                  SSOP-28_5.3x10.2mm_P0.65mm                                      135.2550  -115.9040  -90.0000  top
+U3        TDA7297                      TO-220-15_P2.54x5.08mm_StaggerOdd_Lead4.58mm_Vertical           165.4201  -107.9500   90.0000  top
+U4        CH221K                       SOT-23-6                                                        149.2910   -87.7625  -90.0000  top
+Y1        12M                          Crystal_HC49-U_Vertical                                         144.5660  -113.4640  -90.0000  top
+## End

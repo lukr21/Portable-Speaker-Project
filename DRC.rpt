@@ -1,0 +1,50 @@
+** Drc report for First Project Speaker.kicad_pcb **
+** Created on 2026-07-06T04:06:03 **
+** Report includes: Errors **
+
+** Found 7 DRC violations **
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(116.2050 mm, 73.0250 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(140.9700 mm, 93.3450 mm): PTH pad 2 [GND] of C2
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(116.2050 mm, 73.0250 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(124.0600 mm, 90.7550 mm): Pad A12 [GND] of J1 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(116.2050 mm, 73.0250 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(124.0600 mm, 90.7550 mm): Pad B1 [GND] of J1 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; 2 spokes connected to isolated island)
+    Local override; error
+    @(116.2050 mm, 73.0250 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(160.3401 mm, 99.0600 mm): PTH pad 8 [GND] of U3
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; 2 spokes connected to isolated island)
+    Local override; error
+    @(116.2050 mm, 73.0250 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(131.9530 mm, 127.6350 mm): PTH pad 2 [GND] of C6
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(116.2050 mm, 73.0250 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(132.3300 mm, 112.4040 mm): Pad 12 [GND] of U2 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(116.2050 mm, 73.0250 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(159.3850 mm, 127.0000 mm): PTH pad 2 [GND] of C11
+
+** Found 1 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(164.3700 mm, 75.5650 mm): Track [Net-(U3A-MUTE)] on F.Cu, length 3.0800 mm
+    @(161.6101 mm, 100.3300 mm): Track [Net-(U3A-MUTE)] on F.Cu, length 1.7961 mm
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **
