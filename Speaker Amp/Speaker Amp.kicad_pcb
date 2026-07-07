@@ -15063,9 +15063,9 @@
 			(uuid "ad49d0cc-c441-4a61-a54f-ab9718a95342")
 		)
 		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Fuse.3dshapes/Fuse_Bourns_MF-RG300.step"
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_THT.3dshapes/C_Disc_D7.5mm_W4.4mm_P5.00mm.step"
 			(offset
-				(xyz 0 0 0)
+				(xyz 0.05 -0.6 0)
 			)
 			(scale
 				(xyz 1 1 1)
