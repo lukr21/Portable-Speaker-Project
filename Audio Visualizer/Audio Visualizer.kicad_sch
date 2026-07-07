@@ -4914,7 +4914,7 @@
 		)
 		(uuid "fe4ef474-a9ec-4f96-b6b1-b97428f0084b")
 	)
-	(label "+12V"
+	(label "GND"
 		(at 72.39 68.58 0)
 		(effects
 			(font
@@ -4924,7 +4924,7 @@
 		)
 		(uuid "6a654057-ad5a-4d86-a8b5-0b005165b14f")
 	)
-	(label "IN_R+"
+	(label "IN_R-"
 		(at 80.01 93.98 0)
 		(effects
 			(font
@@ -4934,7 +4934,7 @@
 		)
 		(uuid "893348d4-f13d-4d29-bea4-afe8e0187d4a")
 	)
-	(label "IN_R-"
+	(label "IN_R+"
 		(at 72.39 91.44 0)
 		(effects
 			(font
@@ -4954,7 +4954,7 @@
 		)
 		(uuid "95d1b783-64c4-41b4-9325-b2e22770c2e3")
 	)
-	(label "IN_L-"
+	(label "IN_L+"
 		(at 73.66 146.05 0)
 		(effects
 			(font
@@ -4964,7 +4964,7 @@
 		)
 		(uuid "ca8876ff-b966-4d31-8419-3ea7364fedf9")
 	)
-	(label "IN_L+"
+	(label "IN_L-"
 		(at 78.74 148.59 0)
 		(effects
 			(font
@@ -5004,7 +5004,7 @@
 		)
 		(uuid "d36a7984-4082-4414-9d3f-8a60b06535ef")
 	)
-	(label "GND"
+	(label "+12V"
 		(at 72.39 66.04 0)
 		(effects
 			(font
