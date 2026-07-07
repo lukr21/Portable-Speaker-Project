@@ -211,7 +211,7 @@
       ],
       "track_widths": [
         0.0,
-        0.4
+        0.6
       ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
@@ -546,15 +546,15 @@
     "netclass_patterns": [
       {
         "netclass": "Power",
+        "pattern": "/VBUS_RAW"
+      },
+      {
+        "netclass": "Power",
         "pattern": "/OUT_*"
       },
       {
         "netclass": "Power",
         "pattern": "/+12V"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "/VBUS_RAW"
       }
     ]
   },
@@ -562,7 +562,7 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "../../Downloads/",
+      "plot": "",
       "specctra_dsn": "",
       "vrml": ""
     },
@@ -686,7 +686,7 @@
         "uuid": "b384d237-6c4a-446e-99b5-468e74553199"
       }
     ],
-    "used_designators": "#FLG1-7,SW1-3,R1-20,C1-17,#PWR1-21,Q1,D1-2,F1,U1-4,Y1-2,J1-3",
+    "used_designators": "",
     "variants": []
   },
   "sheets": [
