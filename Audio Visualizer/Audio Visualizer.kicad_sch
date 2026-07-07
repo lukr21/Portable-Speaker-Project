@@ -5119,7 +5119,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 170.18 104.4574 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6664,7 +6664,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-RED"
 			(at 363.22 159.0674 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6837,7 +6837,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 256.54 104.4574 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7286,7 +7286,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-ORANGE"
 			(at 276.86 159.0674 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8395,7 +8395,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 190.5 159.0674 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8488,7 +8488,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-ORANGE"
 			(at 320.04 159.0674 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10167,7 +10167,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 168.91 159.0674 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11286,7 +11286,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 255.27 159.0674 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11731,7 +11731,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 212.09 159.0674 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11984,7 +11984,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 213.36 104.4574 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12163,7 +12163,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-ORANGE"
 			(at 342.9 104.4574 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12850,7 +12850,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-ORANGE"
 			(at 341.63 159.0674 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14127,7 +14127,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 191.77 104.4574 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16202,7 +16202,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 233.68 159.0674 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16455,7 +16455,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-ORANGE"
 			(at 278.13 104.4574 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16712,7 +16712,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-ORANGE"
 			(at 299.72 104.4574 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16883,7 +16883,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-ORANGE"
 			(at 321.31 104.4574 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17054,7 +17054,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-RED"
 			(at 364.49 104.4574 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17421,7 +17421,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 234.95 104.4574 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17706,7 +17706,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-ORANGE"
 			(at 298.45 159.0674 90)
 			(show_name no)
 			(do_not_autoplace no)

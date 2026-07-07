@@ -1448,7 +1448,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-ORANGE"
 			(at 0 1.65 270)
 			(layer "F.Fab")
 			(uuid "64dd8270-9502-4547-8de1-fafc24fb0ebd")
@@ -3868,7 +3868,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-ORANGE"
 			(at 0 1.65 90)
 			(layer "F.Fab")
 			(uuid "e9f2b2a0-89ec-4461-b542-21ac24c3c2fd")
@@ -8020,7 +8020,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-RED"
 			(at 0 1.65 90)
 			(layer "F.Fab")
 			(uuid "8eb3b82a-8772-47de-9e5e-9a6cff8390d3")
@@ -8242,7 +8242,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 0 1.65 90)
 			(layer "F.Fab")
 			(uuid "786bbf43-4d71-4970-91ff-ea8de84e74de")
@@ -8464,7 +8464,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 0 1.65 270)
 			(layer "F.Fab")
 			(uuid "68e6166d-8a25-474e-8e42-1ed4df0a3b50")
@@ -8844,7 +8844,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-ORANGE"
 			(at 0 1.65 270)
 			(layer "F.Fab")
 			(uuid "0f428a63-60e9-4d3e-ac69-fb872d38d724")
@@ -9856,7 +9856,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-ORANGE"
 			(at 0 1.65 90)
 			(layer "F.Fab")
 			(uuid "b06df3fc-ef80-4b99-953b-44d09618a74b")
@@ -10658,7 +10658,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-ORANGE"
 			(at 0 1.65 90)
 			(layer "F.Fab")
 			(uuid "a92bd79c-e0a5-4821-b1c0-054701a1e790")
@@ -11354,7 +11354,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 0 1.65 90)
 			(layer "F.Fab")
 			(uuid "8338d9bf-0318-491e-ab40-74d7462e2ee3")
@@ -11576,7 +11576,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 0 1.65 270)
 			(layer "F.Fab")
 			(uuid "48eb2fec-9112-4a08-bb87-81d9697c0cbf")
@@ -11798,7 +11798,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-ORANGE"
 			(at 0 1.65 90)
 			(layer "F.Fab")
 			(uuid "54921735-0e39-487f-abd7-13c12aa5f1b1")
@@ -13284,7 +13284,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-ORANGE"
 			(at 0 1.65 270)
 			(layer "F.Fab")
 			(uuid "98005bba-edde-4f3a-a286-d505274eabb4")
@@ -17640,7 +17640,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 0 1.65 90)
 			(layer "F.Fab")
 			(uuid "13a908e2-d1cd-4007-a833-93d207e6acb4")
@@ -18744,7 +18744,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 0 1.65 270)
 			(layer "F.Fab")
 			(uuid "1f69de91-6b7b-4d9c-8894-d2b65d826dae")
@@ -19374,7 +19374,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-ORANGE"
 			(at 0 1.65 270)
 			(layer "F.Fab")
 			(uuid "da2a1b75-c14a-4605-9a20-a8fa5a4de1c8")
@@ -19596,7 +19596,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 0 1.65 90)
 			(layer "F.Fab")
 			(uuid "3463d8e3-62c2-4f2b-a460-ba5fd28a0846")
@@ -20740,7 +20740,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-RED"
 			(at 0 1.65 270)
 			(layer "F.Fab")
 			(uuid "b28ca22f-17e6-4f07-8057-3f6c5f354ab1")
@@ -20962,7 +20962,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 0 1.65 270)
 			(layer "F.Fab")
 			(uuid "af5e60bb-8dce-48eb-9086-24dd0780ae1a")
@@ -22724,7 +22724,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 0 1.65 270)
 			(layer "F.Fab")
 			(uuid "e567b473-5692-44e8-99b3-df03dccb18d0")
@@ -23986,7 +23986,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED-GREEN"
 			(at 0 1.65 90)
 			(layer "F.Fab")
 			(uuid "8e68be42-383d-45b5-925b-77e810871019")
