@@ -6648,7 +6648,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" ".022u"
+		(property "Value" "22n"
 			(at 185.42 119.3799 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7416,7 +7416,7 @@
 				)
 			)
 		)
-		(property "Value" ".22u"
+		(property "Value" "220n"
 			(at 233.68 116.84 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8219,7 +8219,7 @@
 				)
 			)
 		)
-		(property "Value" ".22u"
+		(property "Value" "220n"
 			(at 233.68 105.41 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9571,7 +9571,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" ".022u"
+		(property "Value" "22n"
 			(at 172.72 119.3799 0)
 			(show_name no)
 			(do_not_autoplace no)
