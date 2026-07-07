@@ -681,8 +681,8 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "First Project Speaker.kicad_sch",
-        "name": "First Project Speaker",
+        "filename": "Speaker Amp.kicad_sch",
+        "name": "Speaker Amp",
         "uuid": "b384d237-6c4a-446e-99b5-468e74553199"
       }
     ],
@@ -692,7 +692,7 @@
   "sheets": [
     [
       "b384d237-6c4a-446e-99b5-468e74553199",
-      "First Project Speaker"
+      "Speaker Amp"
     ]
   ],
   "text_variables": {},

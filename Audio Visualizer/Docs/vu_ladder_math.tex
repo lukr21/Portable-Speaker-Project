@@ -91,10 +91,11 @@ Full scale and clipping are the same voltage on purpose, which makes the top
 LED the clip light. The op amp also buffers the detector: the ladder pulls
 its current from the op amp instead of draining the peak-hold cap.
 
-\section*{One transistor, two resistors per LED}
+\section*{One transistor, three resistors per LED}
 
-Each stage is an NPN with a grounded emitter and an LED on the collector. Its
-base divider decides when it turns on:
+Each stage is an NPN with a grounded emitter and an LED with its $3.3\kO$
+current limiter on the collector. Two more resistors form the base divider
+that decides when the stage turns on:
 \begin{equation}
 V_k = \Vbe\left(1 + \frac{\Rtop}{R_k}\right)
 \quad\Longrightarrow\quad
@@ -108,25 +109,27 @@ from trial and error: with 13 divisions, exactly three (0.33, 0.44,
 $-22.5$ to 0\,dB.
 
 Every $\Rtop$ is $10\kO$. That leaves exactly one resistor to calculate per
-LED, and it caps each divider at about a milliamp at full scale. Each $R_k$
-rounds to the nearest E24 value. Worst snap error is 3.8\%; adjacent
+LED, and it caps each divider at about a milliamp at full scale. The ideal
+$R_k$ from Eq.~\eqref{eq:rk} rounds to the nearest standard E24 value, which
+shifts the threshold slightly; the error column is how far the resulting
+threshold lands from the ideal $V_k$. Worst case is 3.8\%, and adjacent
 thresholds are 33\% apart, so the turn-on order never flips:
 
 \begin{center}
-\begin{tabular}{c r r r r}
+\begin{tabular}{c r r r r r}
 \toprule
-LED & $L_k$ & $R_k$ (E24) & threshold & snap error \\
+LED & $L_k$ & $R_k$ ideal & $R_k$ (E24) & threshold & error \\
 \midrule
-1  & $-22.5$\,dB & $47\kO$   & 0.79\,V  & $+0.1\%$ \\
-2  & $-20.0$\,dB & $16\kO$   & 1.06\,V  & $+0.6\%$ \\
-3  & $-17.5$\,dB & $9.1\kO$  & 1.36\,V  & $-2.6\%$ \\
-4  & $-15.0$\,dB & $5.1\kO$  & 1.93\,V  & $+3.1\%$ \\
-5  & $-12.5$\,dB & $3.6\kO$  & 2.46\,V  & $-1.4\%$ \\
-6  & $-10.0$\,dB & $2.4\kO$  & 3.36\,V  & $+1.1\%$ \\
-7  & $-7.5$\,dB  & $1.8\kO$  & 4.26\,V  & $-3.8\%$ \\
-8  & $-5.0$\,dB  & $1.2\kO$  & 6.07\,V  & $+2.8\%$ \\
-9  & $-2.5$\,dB  & $910\,\Omega$ & 7.79\,V & $-1.0\%$ \\
-10 & $0.0$\,dB   & $680\,\Omega$ & 10.21\,V & $-2.8\%$ \\
+1  & $-22.5$\,dB & $47.31\kO$ & $47\kO$   & 0.79\,V  & $+0.1\%$ \\
+2  & $-20.0$\,dB & $16.25\kO$ & $16\kO$   & 1.06\,V  & $+0.6\%$ \\
+3  & $-17.5$\,dB & $8.66\kO$  & $9.1\kO$  & 1.36\,V  & $-2.6\%$ \\
+4  & $-15.0$\,dB & $5.34\kO$  & $5.1\kO$  & 1.93\,V  & $+3.1\%$ \\
+5  & $-12.5$\,dB & $3.53\kO$  & $3.6\kO$  & 2.46\,V  & $-1.4\%$ \\
+6  & $-10.0$\,dB & $2.43\kO$  & $2.4\kO$  & 3.36\,V  & $+1.1\%$ \\
+7  & $-7.5$\,dB  & $1.72\kO$  & $1.8\kO$  & 4.26\,V  & $-3.8\%$ \\
+8  & $-5.0$\,dB  & $1.24\kO$  & $1.2\kO$  & 6.07\,V  & $+2.8\%$ \\
+9  & $-2.5$\,dB  & $900\,\Omega$ & $910\,\Omega$ & 7.79\,V & $-1.0\%$ \\
+10 & $0.0$\,dB   & $660\,\Omega$ & $680\,\Omega$ & 10.21\,V & $-2.8\%$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -134,6 +137,13 @@ LED & $L_k$ & $R_k$ (E24) & threshold & snap error \\
 Collector resistors:
 $R_C = (12 - 2.0 - 0.2)\,\mathrm{V} / 3\,\mathrm{mA} \approx 3.3\kO$ per LED.
 The board carries two identical channels, left and right.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{schematic_kicad.png}
+\caption{Full schematic: both channels, each half of the LM358 driving its
+own ten-stage ladder.}
+\end{figure}
 
 \begin{figure}[h]
 \centering
