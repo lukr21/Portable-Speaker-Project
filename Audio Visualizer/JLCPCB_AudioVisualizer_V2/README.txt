@@ -14,6 +14,9 @@ V2 CHANGES vs V1
   - Terminals are five 2P 3.5mm KF350-style blocks J3-J7 (hand-solder,
     Detkin stock). The old MX126 4P blocks are gone.
   - Board re-laid out: ALL SMD is on the TOP side only.
+  - Resistor ladder recalculated so every resistor value is in JLC's
+    BASIC catalog (per-stage Rtop/Rk pairs; see Docs/vu_ladder_math.pdf).
+    Worst threshold error improved from 3.8% to 1.4%.
 
 ORDERING NOTES
   - 2-layer 1.6mm FR-4.

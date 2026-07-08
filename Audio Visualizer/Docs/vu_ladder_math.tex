@@ -46,7 +46,7 @@ behind the resistor values.
   \draw (fb3) to[R, l_=11k] (fb3 -| o1) -- (o1);
   \draw (o1) to[short, -*] ++(0.7,0) coordinate(bus) node[above=2pt]{$\Venv$};
   % divider + stage
-  \draw (bus) to[R, l=10k] ++(2.5,0) coordinate(b) node[circ]{};
+  \draw (bus) to[R, l=$R_{\mathrm{top},k}$] ++(2.5,0) coordinate(b) node[circ]{};
   \node[above=4pt, xshift=6pt, color=hl] at (b) {$\Vbe$};
   \draw (b) to[R, l_=$R_k$] ++(0,-2.2) node[ground]{};
   \draw (b) -- ++(0.8,0) node[npn, anchor=B] (q) {};
@@ -54,10 +54,10 @@ behind the resistor values.
   \draw (q.E) -- ++(0,-0.3) node[ground]{};
   \draw (q.C) ++(0,3.2) node[vcc]{+12\,V} to[R, l=3.3k] ++(0,-1.7) to[full led, l=LED] (q.C);
 \end{circuitikz}
-\caption{Front end and one of ten ladder stages (one channel of two). Only
-$R_k$ changes from stage to stage. LED $k$ turns on when its base hits
-$\Vbe$; the threshold $V_k$ is not a node, just the $\Venv$ value that gets
-the base there.}
+\caption{Front end and one of ten ladder stages (one channel of two). The
+divider pair $R_{\mathrm{top},k}$/$R_k$ changes from stage to stage. LED $k$
+turns on when its base hits $\Vbe$; the threshold $V_k$ is not a node, just
+the $\Venv$ value that gets the base there.}
 \end{figure}
 
 \section*{Getting a loudness voltage}
@@ -99,7 +99,7 @@ that decides when the stage turns on:
 \begin{equation}
 V_k = \Vbe\left(1 + \frac{\Rtop}{R_k}\right)
 \quad\Longrightarrow\quad
-R_k = \Rtop\,\frac{\Vbe}{V_k - \Vbe}.
+\frac{\Rtop}{R_k} = \frac{V_k}{\Vbe} - 1.
 \label{eq:rk}
 \end{equation}
 A divider can only divide, so nothing below $\Vbe \approx 0.65$\,V is
@@ -108,28 +108,33 @@ from trial and error: with 13 divisions, exactly three (0.33, 0.44,
 0.59\,V) fall under $\Vbe$, and the 10 LEDs I wanted survive. Usable range:
 $-22.5$ to 0\,dB.
 
-Every $\Rtop$ is $10\kO$. That leaves exactly one resistor to calculate per
-LED, and it caps each divider at about a milliamp at full scale. The ideal
-$R_k$ from Eq.~\eqref{eq:rk} rounds to the nearest standard E24 value, which
-shifts the threshold slightly; the error column is how far the resulting
-threshold lands from the ideal $V_k$. Worst case is 3.8\%, and adjacent
-thresholds are 33\% apart, so the turn-on order never flips:
+My first pass fixed $\Rtop = 10\kO$ everywhere: one resistor to calculate
+per LED, about a milliamp per divider at full scale. Then the JLCPCB order
+got real. It's not enough for a value to exist as a standard E24 part; it
+also has to be in JLCPCB's \emph{basic} catalog, because every unique
+extended part adds a loading fee to assembly, and several of the
+10k-anchored values were extended only. Since the divider only cares about
+the ratio in Eq.~\eqref{eq:rk}, I re-picked both resistors per stage from
+the basic catalog. Dividers stay in the same roughly-a-milliamp range, and
+the errors actually improved: worst case fell from 3.8\% to 1.4\%. The error
+column is how far the built threshold lands from the ideal $V_k$; adjacent
+thresholds are 33\% apart, so turn-on order was never in danger:
 
 \begin{center}
-\begin{tabular}{c r r r r r}
+\begin{tabular}{c r r r r r r}
 \toprule
-LED & $L_k$ & $R_k$ ideal & $R_k$ (E24) & threshold & error \\
+LED & $L_k$ & ideal $V_k$ & $\Rtop$ & $R_k$ & threshold & error \\
 \midrule
-1  & $-22.5$\,dB & $47.31\kO$ & $47\kO$   & 0.79\,V  & $+0.1\%$ \\
-2  & $-20.0$\,dB & $16.25\kO$ & $16\kO$   & 1.06\,V  & $+0.6\%$ \\
-3  & $-17.5$\,dB & $8.66\kO$  & $9.1\kO$  & 1.36\,V  & $-2.6\%$ \\
-4  & $-15.0$\,dB & $5.34\kO$  & $5.1\kO$  & 1.93\,V  & $+3.1\%$ \\
-5  & $-12.5$\,dB & $3.53\kO$  & $3.6\kO$  & 2.46\,V  & $-1.4\%$ \\
-6  & $-10.0$\,dB & $2.43\kO$  & $2.4\kO$  & 3.36\,V  & $+1.1\%$ \\
-7  & $-7.5$\,dB  & $1.72\kO$  & $1.8\kO$  & 4.26\,V  & $-3.8\%$ \\
-8  & $-5.0$\,dB  & $1.24\kO$  & $1.2\kO$  & 6.07\,V  & $+2.8\%$ \\
-9  & $-2.5$\,dB  & $900\,\Omega$ & $910\,\Omega$ & 7.79\,V & $-1.0\%$ \\
-10 & $0.0$\,dB   & $660\,\Omega$ & $680\,\Omega$ & 10.21\,V & $-2.8\%$ \\
+1  & $-22.5$\,dB & 0.787\,V  & $10\kO$  & $47\kO$  & 0.788\,V  & $+0.1\%$ \\
+2  & $-20.0$\,dB & 1.050\,V  & $20\kO$  & $33\kO$  & 1.044\,V  & $-0.6\%$ \\
+3  & $-17.5$\,dB & 1.400\,V  & $27\kO$  & $24\kO$  & 1.381\,V  & $-1.4\%$ \\
+4  & $-15.0$\,dB & 1.867\,V  & $22\kO$  & $12\kO$  & 1.842\,V  & $-1.4\%$ \\
+5  & $-12.5$\,dB & 2.490\,V  & $6.8\kO$ & $2.4\kO$ & 2.492\,V  & $+0.1\%$ \\
+6  & $-10.0$\,dB & 3.320\,V  & $10\kO$  & $2.4\kO$ & 3.358\,V  & $+1.1\%$ \\
+7  & $-7.5$\,dB  & 4.428\,V  & $27\kO$  & $4.7\kO$ & 4.384\,V  & $-1.0\%$ \\
+8  & $-5.0$\,dB  & 5.905\,V  & $22\kO$  & $2.7\kO$ & 5.946\,V  & $+0.7\%$ \\
+9  & $-2.5$\,dB  & 7.874\,V  & $30\kO$  & $2.7\kO$ & 7.872\,V  & $-0.0\%$ \\
+10 & $0.0$\,dB   & 10.500\,V & $15\kO$  & $1\kO$   & 10.400\,V & $-1.0\%$ \\
 \bottomrule
 \end{tabular}
 \end{center}
