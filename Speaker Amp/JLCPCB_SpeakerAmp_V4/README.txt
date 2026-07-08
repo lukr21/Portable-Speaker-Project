@@ -20,10 +20,16 @@ V4 CHANGES vs V3
 ORDERING NOTES
   - 2-layer 1.6mm FR-4. All SMD on TOP side.
   - JLC assembles the SMD: passives, D2 (C19077569), F1 (C702820),
-    J1 USB-C (C165948), SW1-3 (C2856783), U1/U2/U4, Y1.
+    J1 USB-C (C165948), SW1-3 (C2856783), U1 AMS1117-3.3 (C6186, Basic,
+    pin-compatible LD1117 sub), U2 (C2859784), U4 (C5125736),
+    Y1 12MHz 3225 (C9002, Basic).
+  - D2's C19077569 shows "Extended" in the matcher UI but it is on JLC's
+    PREFERRED list: no feeder/loading fee. Fee-carrying Extended parts are
+    only F1, J1, SW1-3, U2, U4 (~5 x \$3 one-time).
   - Mark as DO NOT PLACE (hand-solder yourself): D1 5mm LED, J2/J3/J4
-    terminals, U3 TDA7297 (C96009, THT; order part + heatsink separately),
-    C2/C3/C15 10uF radials, C16 470uF radial.
+    terminals, U3 TDA7297 (C96009, THT; order part + heatsink separately -
+    deselect it in the matcher or it adds an Extended fee), C2/C3/C15 10uF
+    radials, C16 470uF radial.
   - Blank LCSC cells: JLC's BOM tool auto-suggests Basic parts from value +
     package. Accept those. U2 PCM2704CDBR must be matched manually if JLC
     stock allows, else hand-solder from Digikey.

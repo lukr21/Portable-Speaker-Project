@@ -459,7 +459,7 @@
 				)
 			)
 		)
-		(property "Value" "LD1117S33TR_SOT223"
+		(property "Value" "AMS1117-3.3"
 			(at 0 4.5 90)
 			(layer "F.Fab")
 			(uuid "663aa07b-eb61-4266-8b78-b0d0ade47043")
