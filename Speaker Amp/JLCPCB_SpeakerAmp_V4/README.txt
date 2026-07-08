@@ -25,7 +25,7 @@ ORDERING NOTES
     Y1 12MHz 3225 (C9002, Basic).
   - D2's C19077569 shows "Extended" in the matcher UI but it is on JLC's
     PREFERRED list: no feeder/loading fee. Fee-carrying Extended parts are
-    only F1, J1, SW1-3, U2, U4 (~5 x \$3 one-time).
+    only F1, J1, SW1-3, U2, U4 (~5 x $3 one-time).
   - Mark as DO NOT PLACE (hand-solder yourself): D1 5mm LED, J2/J3/J4
     terminals, U3 TDA7297 (C96009, THT; order part + heatsink separately -
     deselect it in the matcher or it adds an Extended fee), C2/C3/C15 10uF
