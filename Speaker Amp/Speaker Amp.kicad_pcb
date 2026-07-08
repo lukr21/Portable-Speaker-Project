@@ -7677,7 +7677,7 @@
 				)
 			)
 		)
-		(property "Value" "P6KE16A"
+		(property "Value" "SMBJ15A"
 			(at 0 3.1 90)
 			(layer "F.Fab")
 			(uuid "0be13282-57ed-4e23-9f44-e102bfd43a0f")

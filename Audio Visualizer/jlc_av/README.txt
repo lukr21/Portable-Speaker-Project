@@ -1,31 +1,29 @@
-Audio Visualizer V1 - JLCPCB fabrication + assembly package
-Generated 2026-07-07 (KiCad 10.0.4). DRC: 0 errors, 0 unconnected, 0 parity.
+Audio Visualizer V2 - JLCPCB fabrication + assembly package
+Generated 2026-07-08 (KiCad 10.0.4). DRC: 0 errors, 0 unconnected, 0 parity.
 
 CONTENTS
   gerbers.zip  - Gerber X2 + Excellon drill. Upload as the PCB file.
   BOM_JLC.csv  - JLC-format BOM (Comment / Designator / Footprint / LCSC Part #)
-  CPL_JLC.csv  - JLC-format placement file (both sides, mm)
+  CPL_JLC.csv  - JLC-format placement file (mm)
+
+V2 CHANGES vs V1
+  - All 20 ladder LEDs are 5mm THT (hand-solder, Detkin stock). Colors per
+    position (left = connector end, per row): green D2-D6/D13-D17,
+    orange D7-D10/D18-D21, red D11/D22.
+  - C2/C4 10uF are THT radials (user's 100V "BPSM2316" caps, hand-solder).
+  - Terminals are five 2P 3.5mm KF350-style blocks J3-J7 (hand-solder,
+    Detkin stock). The old MX126 4P blocks are gone.
+  - Board re-laid out: ALL SMD is on the TOP side only.
 
 ORDERING NOTES
-  - 2-layer 1.6mm FR-4. Board is a long bar (~85x25mm), all LEDs on TOP side.
-  - Assembly is DOUBLE-SIDED: top = LED ladder SMD; bottom = 2x SMD
-    electrolytics (C2, C4) + 3x THT screw terminals. Choose Standard PCBA
-    (economic only covers single-side SMD). Cheaper alternative: assemble
-    TOP side only and hand-solder the bottom (2 easy SMD caps + 3 THT blocks).
-  - LED colors are encoded in the BOM (left = connector end, per row):
-    * LED-GREEN  (D2-D6, D13-D17)  = C2297
-    * LED-ORANGE (D7-D10, D18-D21) = search "0805 LED orange" in the matcher;
-      if nothing orange is stocked/reasonable, use yellow C2296 instead
-    * LED-RED    (D11, D22)        = C2286
-  - Blank LCSC cells (resistors, 1u caps, 10u electrolytics): JLC's BOM tool
-    auto-suggests basic parts from value + 0805/4x5.4 package. Accept those.
-  - J3 (2P terminal) = LCSC C5188434 (MaiXu MX126-5.0-02P).
-  - J1/J2 (4P terminals): the MX126 4P is NOT stocked at LCSC. Options:
-    (a) fit TWO C5188434 2P blocks side-by-side per footprint (they gang
-        flush at 5.0mm pitch - this is what the 3D render shows), or
-    (b) hand-solder any 5.0mm-pitch 4P screw terminal.
-    Either way, mark J1/J2 "do not place" in the assembly and hand-fit.
-  - Check JLC's DFM/placement preview before confirming: SOT-23 and
-    diode rotations sometimes need their one-click rotate fix.
-  - Wire polarity: pin order was mirrored when terminals moved to the back.
-    Wire per the schematic/silkscreen, not from memory.
+  - 2-layer 1.6mm FR-4.
+  - Assembly is SINGLE-SIDED TOP, SMD only -> Economic PCBA works now.
+    JLC assembles: R1-R66, C1/C3, D1/D12 Schottky (C8598), Q2-Q21 (C20526),
+    U1 (C7950).
+  - Mark as DO NOT PLACE (hand-solder yourself): all LEDs D2-D11/D13-D22,
+    C2/C4, J3-J7.
+  - Blank LCSC cells (resistors, 1u caps): JLC's BOM tool auto-suggests
+    Basic parts from value + 0805 package. Accept those.
+  - Check JLC's DFM/placement preview: SOT-23 and diode rotations sometimes
+    need their one-click rotate fix.
+  - Wire per the schematic/silkscreen, not from memory.

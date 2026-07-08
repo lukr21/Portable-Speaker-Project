@@ -1,28 +1,31 @@
-Speaker Amp V3.1 - JLCPCB fabrication + assembly package
-Generated 2026-07-07 (KiCad 10.0.4). DRC: fully routed, 0 unconnected,
-0 parity; accepted starved-thermal warnings only.
-
-Changes vs previous package: Y1 crystal is now 3225 4-pad (2-pin-mapped
-footprint), SW1-SW3 are now SMD side-press XUNPU TS-1005B (machine
-assembled!), cap values normalized (22n/220n).
+Speaker Amp V4 - JLCPCB fabrication + assembly package
+Generated 2026-07-08 (KiCad 10.0.4). DRC: 0 errors (1 accepted starved
+thermal on R6), 0 unconnected, 0 parity.
 
 CONTENTS
-  gerbers.zip  - Gerber X2 + Excellon drill. RE-UPLOAD this as the PCB file.
-  BOM_JLC.csv  - JLC-format BOM
+  gerbers.zip  - Gerber X2 + Excellon drill. Upload as the PCB file.
+  BOM_JLC.csv  - JLC-format BOM (Comment / Designator / Footprint / LCSC Part #)
   CPL_JLC.csv  - JLC-format placement file (mm)
 
+V4 CHANGES vs V3
+  - D2 TVS: P6KE16A THT -> SMBJ15A SMB, LCSC C19077569 (JLC Preferred, no
+    feeder fee). Polarity is in the netlist; cathode pad faces VBUS_RAW.
+  - F1 polyfuse: Bourns MF-RG300 radial -> SMD1812P300TF/16 (3A hold, 16V,
+    1812), LCSC C702820. Extended part (~$3 feeder fee). Do NOT substitute
+    the suffix-less SMD1812P300TF (C21004): that one is only rated 8V.
+  - D1 indicator LED: APA1606 side LED -> 5mm THT (hand-solder).
+  - J2/J3/J4 terminals: 5.08mm Phoenix -> 2P 3.5mm KF350-style (hand-solder,
+    Detkin stock).
+
 ORDERING NOTES
-  - SW1-SW3: XUNPU TS-1005B-AR04526 = C2856783 (pre-filled).
-  - Y1: pick a BASIC 12MHz crystal, 3.2x2.5mm (3225) 4-pad, CL 18-20pF
-    (e.g. YXC X322512MSB4SI). 20pF is fine with the 22pF load caps.
-  - U2 PCM2704CDBR: search by MPN, VERIFY STOCK FIRST (no substitutes).
-  - U1 LD1117S33TR, U4 CH221K, D2 P6KE16A: search by MPN.
-  - D1: Kingbright APA1606CGCK green side-view (1.6x0.6mm); DNP+hand-solder
-    if not stocked.
-  - Generic 0805 R/C: accept JLC basic auto-matches.
-  - Electrolytics: 10uF >=16V radial 5mm/2mm pitch; 470uF >=16V 10mm/5mm.
-  - J2-J4 terminal blocks: DNP, hand-solder (5.08mm pitch, e.g. Phoenix MKDS
-    or KF301/DG500 clones with <=1.3mm pins).
-  - U3 TDA7297 mounts vertically; NO heatsink at assembly (customer fits own).
-  - Check the DFM/placement preview: rotations of U1/U2/U4, D2, and the
-    side-press switches (button must face OFF the board edge).
+  - 2-layer 1.6mm FR-4. All SMD on TOP side.
+  - JLC assembles the SMD: passives, D2 (C19077569), F1 (C702820),
+    J1 USB-C (C165948), SW1-3 (C2856783), U1/U2/U4, Y1.
+  - Mark as DO NOT PLACE (hand-solder yourself): D1 5mm LED, J2/J3/J4
+    terminals, U3 TDA7297 (C96009, THT; order part + heatsink separately),
+    C2/C3/C15 10uF radials, C16 470uF radial.
+  - Blank LCSC cells: JLC's BOM tool auto-suggests Basic parts from value +
+    package. Accept those. U2 PCM2704CDBR must be matched manually if JLC
+    stock allows, else hand-solder from Digikey.
+  - Check JLC's DFM/placement preview: SOT-23/SMB rotations sometimes need
+    their one-click rotate fix.

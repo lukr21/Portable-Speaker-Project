@@ -6,11 +6,11 @@ Comment,Designator,Footprint,LCSC Part #
 220n,"C13,C14",C_0805_2012Metric,
 470u,C16,CP_Radial_D10.0mm_P5.00mm,
 100n,C17,C_0805_2012Metric,
-LED,D1,LED_Kingbright_APA1606_1.6x0.6mm_Horizontal,
-P6KE16A,D2,D_DO-15_P10.16mm_Horizontal,
-Polyfuse,F1,Fuse_Bourns_MF-RG300,
+LED,D1,LED_D5.0mm,
+SMBJ15A,D2,D_SMB,C19077569
+Polyfuse,F1,Fuse_1812_4532Metric,C702820
 USB_C_Receptacle_USB2.0_16P,J1,USB_C_Receptacle_HRO_TYPE-C-31-M-12,C165948
-Screw_Terminal_01x02,"J2,J3,J4","TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+Screw_Terminal_01x02,"J2,J3,J4",TerminalBlock_4Ucon_1x02_P3.50mm_Horizontal,
 22,"R1,R2",R_0805_2012Metric,
 5.1k,"R3,R4",R_0805_2012Metric,
 1k,R5,R_0805_2012Metric,
