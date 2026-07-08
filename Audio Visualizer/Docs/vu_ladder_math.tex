@@ -108,17 +108,12 @@ from trial and error: with 13 divisions, exactly three (0.33, 0.44,
 0.59\,V) fall under $\Vbe$, and the 10 LEDs I wanted survive. Usable range:
 $-22.5$ to 0\,dB.
 
-My first pass fixed $\Rtop = 10\kO$ everywhere: one resistor to calculate
-per LED, about a milliamp per divider at full scale. Then the JLCPCB order
-got real. It's not enough for a value to exist as a standard E24 part; it
-also has to be in JLCPCB's \emph{basic} catalog, because every unique
-extended part adds a loading fee to assembly, and several of the
-10k-anchored values were extended only. Since the divider only cares about
-the ratio in Eq.~\eqref{eq:rk}, I re-picked both resistors per stage from
-the basic catalog. Dividers stay in the same roughly-a-milliamp range, and
-the errors actually improved: worst case fell from 3.8\% to 1.4\%. The error
-column is how far the built threshold lands from the ideal $V_k$; adjacent
-thresholds are 33\% apart, so turn-on order was never in danger:
+I adjust both the top and bottom resistor per stage: two free values hit
+each ratio with less error, and it gives me the most flexibility to pick
+parts JLCPCB stocks in its \emph{basic} catalog (extended parts each add a
+loading fee). The error column is how far the built threshold lands from the
+ideal $V_k$. Worst case is 1.4\%, and adjacent thresholds are 33\% apart, so
+turn-on order is never in danger:
 
 \begin{center}
 \begin{tabular}{c r r r r r r}
