@@ -12,3 +12,5 @@ fp-info-cache
 .history/
 PCBWay_*.zip
 JLCPCB_*.zip
+# KiCad restore snapshots
+_restore_backup_*/
