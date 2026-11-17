@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Small two-layer grid router for low-current signal nets (run with KiCad's python).
-usage: pcb_route.py in.kicad_pcb drc.rpt out.kicad_pcb [width_mm]
+usage: pcb_route.py in.kicad_pcb drc.rpt out.kicad_pcb [width_mm] [skip,nets] [only,nets]
 Reads the unconnected pairs from a kicad-cli DRC report and connects each with an
 A* search on a 0.1 mm grid, honouring clearance to all other copper, holes and the
 board edge. Existing copper is never moved."""
@@ -9,6 +9,7 @@ import sys, re, heapq, math, pcbnew
 src, rpt, dst = sys.argv[1:4]
 W = float(sys.argv[4]) if len(sys.argv) > 4 else 0.2
 SKIP = set(sys.argv[5].split(",")) if len(sys.argv) > 5 else set()
+ONLY = set(sys.argv[6].split(",")) if len(sys.argv) > 6 else None
 CLR = 0.2
 G = 0.1                                   # grid pitch, mm
 VIA_D, VIA_H = 0.6, 0.3
@@ -224,7 +225,7 @@ pairs = re.findall(r"\[unconnected_items\].*?\n.*?\n\s*@\(([\d\.\-]+) mm, ([\d\.
 jobs = []
 for ax, ay, ad, bx_, by_, bd in pairs:
     nm = re.search(r"\[([^\]]+)\]", ad).group(1)
-    if (nm == "GND" and not ad.startswith("Island")) or nm in SKIP or "Zone" in ad or "Zone" in bd:
+    if (nm == "GND" and not ad.startswith("Island")) or nm in SKIP or (ONLY and nm not in ONLY) or "Zone" in ad or "Zone" in bd:
         continue
     jobs.append((math.hypot(float(ax) - float(bx_), float(ay) - float(by_)), nm, float(ax), float(ay), float(bx_), float(by_)))
 done = fail = 0
@@ -278,7 +279,7 @@ for ax, ay, ad, bx_, by_, bd in pairs:
         if "[GND]" in dsc and dsc.startswith("Pad"):
             pts.add((float(x), float(y)))
 W_SAVE = W
-for x, y in sorted(pts):
+for x, y in ([] if ONLY else sorted(pts)):
     pth = stitch(gnd, x, y)
     if pth is None:
         print("STITCH FAILED", x, y)
