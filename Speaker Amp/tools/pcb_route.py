@@ -84,6 +84,9 @@ def cluster(net, x, y):
     """all grid cells of the net's copper that are electrically joined to the copper at (x, y)"""
     cu = {}
     for layers, kind, a, hw in prims.get(net, []):
+        if kind == "rect":      # pads may be round or oval: only the inscribed core counts as "touching"
+            mx, my = (a[0] + a[2]) / 2, (a[1] + a[3]) / 2
+            a = (mx + (a[0] - mx) * 0.6, my + (a[1] - my) * 0.6, mx + (a[2] - mx) * 0.6, my + (a[3] - my) * 0.6)
         for c in cells_of(a, hw, kind == "rect"):
             for l in layers:
                 cu[(l,) + c] = len(layers) > 1 or cu.get((l,) + c, False)
