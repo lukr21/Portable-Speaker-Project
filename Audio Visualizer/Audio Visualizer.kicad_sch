@@ -17806,7 +17806,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 97.282 152.4 90)
 			(hide yes)
 			(show_name no)
@@ -18093,7 +18093,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Polarized")
+		(lib_id "Device:C")
 		(at 113.03 66.04 0)
 		(unit 1)
 		(body_style 1)
@@ -18115,7 +18115,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "47u"
+		(property "Value" "10u 25V"
 			(at 116.84 66.4209 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18126,7 +18126,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 113.9952 69.85 0)
 			(hide yes)
 			(show_name no)
