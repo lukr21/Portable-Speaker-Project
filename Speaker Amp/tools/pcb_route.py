@@ -186,7 +186,7 @@ def route(net, ax, ay, bx_, by_):
                 dist[k] = nd; prev[k] = cur
                 heapq.heappush(pq, (nd + math.hypot(nx_ - tx, ny_ - ty), k))
         i = y * NX + x
-        if own_v[0][i] in (FREE, net) and own_v[1][i] in (FREE, net) and ok(1 - l, i):
+        if own_v[0][i] in (FREE, net) and own_v[1][i] in (FREE, net) and ok(1 - l, i) and all(abs(x - vx) > 8 or abs(y - vy) > 8 for vx, vy in via_sites):
             k = (1 - l, x, y)
             nd = d + VIA_COST
             if nd < dist.get(k, 1e18):
@@ -200,28 +200,113 @@ def route(net, ax, ay, bx_, by_):
     return path[::-1]
 
 
+def cell_ok(net, l, x, y):
+    return 0 <= x < NX and 0 <= y < NY and own_t[l][y * NX + x] in (FREE, net)
+
+
+def line_ok(net, l, a, c):
+    """straight or 45-degree run of grid cells from a to c is routable"""
+    dx, dy = c[0] - a[0], c[1] - a[1]
+    n = max(abs(dx), abs(dy))
+    if n == 0:
+        return True
+    if not (dx == 0 or dy == 0 or abs(dx) == abs(dy)):
+        return False
+    sx, sy = (dx > 0) - (dx < 0), (dy > 0) - (dy < 0)
+    x, y = a
+    for _ in range(n):
+        nx_, ny_ = x + sx, y + sy
+        if not cell_ok(net, l, nx_, ny_):
+            return False
+        if sx and sy and not (cell_ok(net, l, nx_, y) and cell_ok(net, l, x, ny_)):
+            return False
+        x, y = nx_, ny_
+    return True
+
+
+def link(net, l, a, c):
+    """join a and c with one run, or one straight plus one 45-degree run; None if blocked"""
+    dx, dy = c[0] - a[0], c[1] - a[1]
+    if dx == 0 or dy == 0 or abs(dx) == abs(dy):
+        return [] if line_ok(net, l, a, c) else None
+    d = min(abs(dx), abs(dy))
+    sx, sy = (dx > 0) - (dx < 0), (dy > 0) - (dy < 0)
+    for mid in ((a[0] + sx * d, a[1] + sy * d), (c[0] - sx * d, c[1] - sy * d)):
+        if line_ok(net, l, a, mid) and line_ok(net, l, mid, c):
+            return [mid]
+    return None
+
+
+def smooth(net, l, pts):
+    """replace the grid staircase by the fewest straight / 45-degree runs, then chamfer any 90-degree corner"""
+    out = [pts[0]]
+    i = 0
+    while i < len(pts) - 1:
+        for j in range(len(pts) - 1, i, -1):
+            mid = link(net, l, pts[i], pts[j])
+            if mid is not None:
+                break
+        out += mid + [pts[j]]
+        i = j
+    # drop collinear vertices
+    def direc(a, c):
+        dx, dy = c[0] - a[0], c[1] - a[1]
+        return ((dx > 0) - (dx < 0), (dy > 0) - (dy < 0))
+    v = [out[0]]
+    for k in range(1, len(out)):
+        if out[k] == v[-1]:
+            continue
+        if len(v) >= 2 and direc(v[-2], v[-1]) == direc(v[-1], out[k]):
+            v[-1] = out[k]
+        else:
+            v.append(out[k])
+    # chamfer right-angle corners
+    res = [v[0]]
+    for k in range(1, len(v) - 1):
+        d1, d2 = direc(res[-1], v[k]), direc(v[k], v[k + 1])
+        if d1[0] * d2[0] + d1[1] * d2[1] == 0:
+            l1 = max(abs(v[k][0] - res[-1][0]), abs(v[k][1] - res[-1][1]))
+            l2 = max(abs(v[k + 1][0] - v[k][0]), abs(v[k + 1][1] - v[k][1]))
+            for c in range(min(8, l1 // 2, l2 // 2), 0, -1):
+                p1 = (v[k][0] - d1[0] * c, v[k][1] - d1[1] * c)
+                p2 = (v[k][0] + d2[0] * c, v[k][1] + d2[1] * c)
+                if line_ok(net, l, p1, p2):
+                    res += [p1, p2]
+                    break
+            else:
+                res.append(v[k])
+        else:
+            res.append(v[k])
+    res.append(v[-1])
+    return res
+
+
 def commit(netcode, path):
     ni = b.FindNet(netcode)
     P = lambda x, y: pcbnew.VECTOR2I(M(X0 + x * G), M(Y0 + y * G))
-    i = 0
-    while i < len(path) - 1:
-        l, x, y = path[i]
-        l2, x2, y2 = path[i + 1]
-        if l2 != l:
+    runs, cur = [], [path[0]]
+    for k in range(1, len(path)):
+        if path[k][0] != cur[-1][0]:
+            runs.append(cur); cur = [path[k]]
+            x, y = path[k][1], path[k][2]
             v = pcbnew.PCB_VIA(b); v.SetPosition(P(x, y)); v.SetWidth(F, M(VIA_D)); v.SetDrill(M(VIA_H)); v.SetNet(ni); v.SetLayerPair(F, B)
-            b.Add(v)
+            b.Add(v); via_sites.append((x, y))
             claim([0, 1], "seg", (X0 + x * G, Y0 + y * G, X0 + x * G, Y0 + y * G), netcode, VIA_D / 2)
-            i += 1
+        else:
+            cur.append(path[k])
+    runs.append(cur)
+    for run in runs:
+        if len(run) < 2:
             continue
-        dx, dy = x2 - x, y2 - y
-        j = i + 1
-        while j + 1 < len(path) and path[j + 1][0] == l and (path[j + 1][1] - path[j][1], path[j + 1][2] - path[j][2]) == (dx, dy):
-            j += 1
-        t = pcbnew.PCB_TRACK(b); t.SetStart(P(x, y)); t.SetEnd(P(path[j][1], path[j][2])); t.SetWidth(M(W))
-        t.SetLayer(F if l == 0 else B); t.SetNet(ni); b.Add(t)
-        claim([l], "seg", (X0 + x * G, Y0 + y * G, X0 + path[j][1] * G, Y0 + path[j][2] * G), netcode, W / 2)
-        i = j
+        l = run[0][0]
+        v = smooth(netcode, l, [(c[1], c[2]) for c in run])
+        for (x1, y1), (x2, y2) in zip(v, v[1:]):
+            t = pcbnew.PCB_TRACK(b); t.SetStart(P(x1, y1)); t.SetEnd(P(x2, y2)); t.SetWidth(M(W))
+            t.SetLayer(F if l == 0 else B); t.SetNet(ni); b.Add(t)
+            claim([l], "seg", (X0 + x1 * G, Y0 + y1 * G, X0 + x2 * G, Y0 + y2 * G), netcode, W / 2)
 
+
+via_sites = [cell(mm(t.GetPosition().x), mm(t.GetPosition().y)) for t in b.GetTracks() if t.GetClass() == "PCB_VIA"]
 
 txt = open(rpt).read()
 pairs = re.findall(r"\[unconnected_items\].*?\n.*?\n\s*@\(([\d\.\-]+) mm, ([\d\.\-]+) mm\): (.*?)\n\s*@\(([\d\.\-]+) mm, ([\d\.\-]+) mm\): (.*?)\n", txt)
@@ -256,7 +341,7 @@ def stitch(net, x, y):
             continue
         l, cx, cy = cur
         i = cy * NX + cx
-        if own_v[0][i] in (FREE, net) and own_v[1][i] in (FREE, net) and ok(1 - l, i) and d >= 6:
+        if own_v[0][i] in (FREE, net) and own_v[1][i] in (FREE, net) and ok(1 - l, i) and d >= 6 and all(abs(cx - vx) > 10 or abs(cy - vy) > 10 for vx, vy in via_sites):
             path = [cur]
             while path[-1] in prev:
                 path.append(prev[path[-1]])
